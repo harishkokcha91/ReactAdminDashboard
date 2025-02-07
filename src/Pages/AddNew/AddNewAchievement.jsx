@@ -1,15 +1,13 @@
 import DriveFolderUploadIcon from '@mui/icons-material/DriveFolderUpload';
 import InfoIcon from '@mui/icons-material/Info'; // Info icon for popup
-import { Button, Dialog, DialogActions, DialogContent, DialogTitle, IconButton } from '@mui/material';
-import axios from 'axios'; // Import axios for API call
+import { Button, Dialog, DialogActions, DialogContent, DialogTitle, IconButton, MenuItem, Select } from '@mui/material';
+import axios from "axios";
 import React, { useState } from 'react';
-
-
 import Input from '../../Components/Input/Input';
 import Navbar from '../../Components/Navbar/Navbar';
 import Sidebar from '../../Components/Sidebar/Sidebar';
 import noImage from '../../Images/photo-camera.png';
-import './AddNewAchievement.scss';
+import './New.scss';
 
 const achievementTypes = [
     { type: 'Academic', description: 'Excellence in studies, scholarships, Olympiads, etc.' },
@@ -36,20 +34,15 @@ function AddNewAchievement() {
         achievement: '',
         description: '',
         date_of_achievement: '',
-        image: '',
-        status: '',
+        image: ''
     });
 
-    const [file, setFile] = useState(null);
+    const [file, setFile] = useState('');
     const [loading, setLoading] = useState(false);
     const [open, setOpen] = useState(false); // Popup state
 
     const handleChange = (e) => {
         setAchievementData({ ...achievementData, [e.target.name]: e.target.value });
-    };
-
-    const handleFileChange = (e) => {
-        setFile(e.target.files[0]);
     };
 
     const handleSubmit = async (e) => {
@@ -73,10 +66,10 @@ function AddNewAchievement() {
 
             const payload = {
                 ...achievementData,
-                image: imageUrl
+                image: imageUrl,
             };
 
-            const response = await axios.post('https://api.example.com/achievements', payload);
+            const response = await axios.post('http://localhost:8084/brilliantstudent/achievements/', payload);
             console.log('Saved Successfully:', response.data);
 
             alert('Achievement added successfully!');
@@ -111,7 +104,7 @@ function AddNewAchievement() {
                     <div className="new_page_content">
                         <div className="image">
                             <p className="add_new_user">Add New Achievement</p>
-                            <img src={file ? URL.createObjectURL(file) : noImage} alt="Achievement Preview" />
+                            <img src={file ? URL.createObjectURL(file) : noImage} alt="" />
                         </div>
 
                         <form onSubmit={handleSubmit} className="form">
@@ -119,49 +112,79 @@ function AddNewAchievement() {
                                 <label htmlFor="file">
                                     Upload: <DriveFolderUploadIcon className="file_icon" />
                                 </label>
-
                                 <input
                                     type="file"
                                     id="file"
                                     style={{ display: 'none' }}
-                                    onChange={handleFileChange}
+                                    onChange={(e) => setFile(e.target.files[0])}
                                 />
                             </div>
 
-                            <Input type="text" name="name" placeholder="Name" value={achievementData.name} onChange={handleChange} />
-                           
+                            {/* Achievement Type Dropdown with Info Icon */}
                             <div className="form_group">
                                 <label>Achievement Type</label>
                                 <div style={{ display: 'flex', alignItems: 'center' }}>
-                            <select name="achievement_type" value={achievementData.achievement_type} onChange={handleChange} className="status_select">
-                            <option value="">Select Achievement Type</option>
-                                {achievementTypes.map((item) => (
-                                    <option value={item.type}>
-                                    {item.type}
-                                    </option>
-                                ))}
-                            </select>
-                             {/* Info Icon Button */}
-                             <IconButton onClick={() => setOpen(true)} style={{ marginLeft: '8px' }}>
+                                    <Select
+                                        name="achievement_type"
+                                        value={achievementData.achievement_type}
+                                        onChange={handleChange}
+                                        displayEmpty
+                                        style={{ flex: 1 }}
+                                    >
+                                        <MenuItem value="" disabled>Select Achievement Type</MenuItem>
+                                        {achievementTypes.map((item) => (
+                                            <MenuItem key={item.type} value={item.type}>
+                                                {item.type}
+                                            </MenuItem>
+                                        ))}
+                                    </Select>
+
+                                    {/* Info Icon Button */}
+                                    <IconButton onClick={() => setOpen(true)} style={{ marginLeft: '8px' }}>
                                         <InfoIcon color="primary" />
                                     </IconButton>
                                 </div>
                             </div>
-                           <Input type="text" name="achievement" placeholder="Achievement Title" value={achievementData.achievement} onChange={handleChange} />
-                            <Input type="text" name="description" placeholder="Description" value={achievementData.description} onChange={handleChange} />
-                            <Input type="date" name="date_of_achievement" value={achievementData.date_of_achievement} onChange={handleChange} />
-                            
 
-                            <button type="submit" className="submit_btn" disabled={loading}>
-                                {loading ? 'Saving...' : 'Submit'}
+                            <Input
+                                type="text"
+                                name="name"
+                                placeholder="Name"
+                                value={achievementData.name}
+                                onChange={handleChange}
+                            />
+                            <Input
+                                type="text"
+                                name="achievement"
+                                placeholder="Achievement"
+                                value={achievementData.achievement}
+                                onChange={handleChange}
+                            />
+                            <Input
+                                type="text"
+                                name="description"
+                                placeholder="Description"
+                                value={achievementData.description}
+                                onChange={handleChange}
+                            />
+                            <Input
+                                type="date"
+                                name="date_of_achievement"
+                                placeholder="Date of Achievement"
+                                value={achievementData.date_of_achievement}
+                                onChange={handleChange}
+                            />
+
+                            <button type="submit" className="submit_btn">
+                                Submit
                             </button>
                         </form>
                     </div>
                 </div>
             </div>
 
-             {/* Popup Window for Achievement Descriptions */}
-             <Dialog open={open} onClose={() => setOpen(false)}>
+            {/* Popup Window for Achievement Descriptions */}
+            <Dialog open={open} onClose={() => setOpen(false)}>
                 <DialogTitle>Achievement Types</DialogTitle>
                 <DialogContent>
                     {achievementTypes.map((item) => (
