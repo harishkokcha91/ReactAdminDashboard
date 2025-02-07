@@ -1,0 +1,134 @@
+.add_new {
+    display: grid;
+    grid-template-columns: 17% 83%;
+    gap: 20px;
+    padding: 20px;
+  
+    .home_sidebar {
+      background-color: #f8f9fa;
+      padding: 10px;
+    }
+  
+    .new_page {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+  
+      .new_page_main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+  
+        .new_page_content {
+          background: #fff;
+          padding: 25px;
+          border-radius: 10px;
+          box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+          max-width: 600px;
+          width: 100%;
+          text-align: center;
+  
+          .image {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+  
+            img {
+              width: 130px;
+              height: 130px;
+              border-radius: 10px;
+              object-fit: cover;
+              border: 3px solid #ddd;
+            }
+  
+            .add_new_user {
+              font-size: 20px;
+              font-weight: bold;
+              margin-bottom: 10px;
+            }
+          }
+  
+          .form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+  
+            .form_inp {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              gap: 10px;
+  
+              label {
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                font-size: 16px;
+                color: #555;
+  
+                .file_icon {
+                  color: #555;
+                }
+              }
+            }
+  
+            .status_select {
+              padding: 8px;
+              font-size: 16px;
+              border-radius: 5px;
+              border: 1px solid #ccc;
+            }
+  
+            .submit_btn {
+              padding: 10px 15px;
+              border: none;
+              border-radius: 5px;
+              font-size: 16px;
+              cursor: pointer;
+              background-color: #007bff;
+              color: white;
+              transition: 0.3s;
+  
+              &:hover {
+                background-color: #0056b3;
+              }
+  
+              &:disabled {
+                background-color: #ccc;
+                cursor: not-allowed;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  /* Responsive Design */
+  @media screen and (max-width: 992px) {
+    .add_new {
+      grid-template-columns: 100%;
+  
+      .home_sidebar {
+        display: none;
+      }
+    }
+  }
+  
+  @media screen and (max-width: 767px) {
+    .add_new {
+      padding: 10px;
+  
+      .new_page_main {
+        padding: 15px;
+  
+        .new_page_content {
+          width: 90%;
+        }
+      }
+    }
+  }
+  
