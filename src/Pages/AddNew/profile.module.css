@@ -1,0 +1,79 @@
+.profile-form {
+    width: 400px;
+    background: #fff;
+    border: 1px solid #dddfe2;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+    border-radius: 8px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.profile-form h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.profile-form input, 
+.profile-form textarea, 
+.profile-form select {
+    border-radius: 20px;
+    border: 2px solid lightgrey;
+    outline: none;
+    color: #1d2129;
+    margin: 2% 0;
+    width: 90%;
+    padding: 12px;
+    font-size: 16px;
+}
+
+.profile-form input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+.profile-form button {
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 12px;
+    font-size: 16px;
+    width: 90%;
+    margin-top: 2%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.profile-form button:hover {
+    background-color: #45a049;
+}
+
+.profile-form .form-section {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.profile-form .form-section label {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.profile-form .form-section input {
+    width: 100%;
+}
+
+.profile-form .form-section textarea {
+    width: 100%;
+    min-height: 100px;
+}
+
+.profile-form .form-section select {
+    width: 100%;
+}
