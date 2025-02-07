@@ -7,6 +7,7 @@ import Orders from './Components/Orders/Orders';
 import AddNew from './Pages/AddNew/AddNew';
 import BlogDetail from './Pages/BlogDetail/BlogDetail';
 import Blogs from './Pages/Blogs/Blogs';
+import AchievementDetails from "./Pages/Detail/AchievementDetails";
 import Detail from './Pages/Detail/Detail';
 import ProfileDetails from './Pages/Detail/ProfileDetails';
 import Login from './Pages/Login/Login';
@@ -173,7 +174,21 @@ function App() {
                             />
                         </Route>
                         <Route path="orders" element={<Orders />} />
-                        <Route path="achievements" element={<Achievements />} />
+                        <Route path="achievements">
+                            <Route index element={<Achievements />} />
+                            <Route path=":achievementId" element={<AchievementDetails />} />
+                            {/* <Route
+                                path="addnew"
+                                element={
+                                    <AddNew
+                                        inputs={achievementInpDetails}
+                                        titlee="Add New Achievement"
+                                        type="ACHIEVEMENT"
+                                    />
+                                }
+                            /> */}
+                        </Route>
+
                         {/* nested routes */}
                         <Route path="products">
                             <Route index element={<Lists type="product" />} />
