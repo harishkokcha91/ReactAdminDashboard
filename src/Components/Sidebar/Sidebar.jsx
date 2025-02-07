@@ -50,6 +50,11 @@ function Sidebar() {
                             <CreditCardIcon className="icon" /> Orders
                         </li>
                     </Link>
+                    <Link to="/achievements" style={{ textDecoration: 'none' }}>
+                        <li>
+                            <CreditCardIcon className="icon" /> Achievements
+                        </li>
+                     </Link>
                     <li>
                         <CreditCardIcon className="icon" /> Balance
                     </li>

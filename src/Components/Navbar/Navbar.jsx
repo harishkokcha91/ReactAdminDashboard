@@ -116,6 +116,11 @@ function Navbar() {
                                             <TableChartIcon className="icon" /> Products
                                         </li>
                                     </Link>
+                                    <Link to="/achievements" style={{ textDecoration: 'none' }}>
+                                        <li>
+                                            <CreditCardIcon className="icon" /> Achievements
+                                        </li>
+                                    </Link>
                                     <Link to="/orders" style={{ textDecoration: 'none' }}>
                                         <li>
                                             <CreditCardIcon className="icon" /> Orders

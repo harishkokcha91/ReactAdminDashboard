@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { ColorContext } from './ColorContext/darkContext';
+import Achievements from "./Components/Achievements/Achievements";
 import Home from './Components/Home/Home';
 import Orders from './Components/Orders/Orders';
 import AddNew from './Pages/AddNew/AddNew';
@@ -172,6 +173,7 @@ function App() {
                             />
                         </Route>
                         <Route path="orders" element={<Orders />} />
+                        <Route path="achievements" element={<Achievements />} />
                         {/* nested routes */}
                         <Route path="products">
                             <Route index element={<Lists type="product" />} />

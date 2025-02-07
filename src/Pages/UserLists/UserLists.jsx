@@ -30,8 +30,7 @@ function Lists({ type }) {
                                     ? 'users'
                                     : 'blogs'
                             }/addnew`}
-                            style={{ textDecoration: 'none' }}
-                        >
+                            style={{ textDecoration: 'none' }}>
                             <button type="button">Add New {type}</button>
                         </Link>
                     </div>
