@@ -9,7 +9,7 @@ import TableRow from '@mui/material/TableRow';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import './tableList.scss';
+import styles from './tableList.scss';
 
 const TOKEN = '{{token}}';
 const DEFAULT_IMAGE = "https://via.placeholder.com/50"; // Placeholder for missing images
@@ -66,6 +66,20 @@ function TableList({ userId }) {
         setData(data.filter((item) => item.id !== id));
     };
 
+    const getStatusClass = (status) => {
+        console.log(status)
+        switch (status.toLowerCase()) {
+          case "pending":
+            return styles.pending;
+          case "approved":
+            return styles.approved;
+          case "rejected":
+            return styles.rejected;
+          default:
+            return "";
+        }
+      };
+
     return (
         <div>
             <TableContainer component={Paper} className="table_list">
@@ -80,6 +94,7 @@ function TableList({ userId }) {
                             <TableCell className="table_cell">Location</TableCell>
                             <TableCell className="table_cell">Phone</TableCell>
                             <TableCell className="table_cell">Status</TableCell>
+                            <TableCell className="table_cell">Action</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -94,7 +109,7 @@ function TableList({ userId }) {
                                 <TableRow key={row.id}>
                                     <TableCell className="table_cell">
                                         <img 
-                                            src={row.imageUrl || DEFAULT_IMAGE} 
+                                            src={"http://localhost:8084/profile/"+row.image || DEFAULT_IMAGE} 
                                             alt="Profile" 
                                             style={{ width: 50, height: 50, borderRadius: "50%" }} 
                                         />
@@ -105,14 +120,16 @@ function TableList({ userId }) {
                                     <TableCell className="table_cell">{row.annualIncome}</TableCell>
                                     <TableCell className="table_cell">{row.currentLocation}</TableCell>
                                     <TableCell className="table_cell">{row.phoneNumbers}</TableCell>
-                                    <TableCell className="table_cell">{row.status}</TableCell>
+                                    <TableCell className="table_cell">
+                                    <span className={`status ${row.status}`}>{row.status || "Pending"}</span>
+                                    </TableCell>
                                     
                                     {/* Action Buttons */}
                                     <TableCell className="table_cell">
                                         <div className="actionn">
                                             
                                             <Link to={`/products/${row.id}`}>
-                                                <button type="button" className="view_btn">
+                                                <button type="button" className="viewF_btn">
                                                     View {row.id}
                                                 </button>
                                             </Link>
