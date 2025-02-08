@@ -207,9 +207,25 @@ function App() {
                         </Route>
 
                         {/* nested routes */}
+                        <Route path="profiles">
+                            <Route index element={<Lists type="profile" />} />
+                            <Route path=":profileId" element={<ProfileDetails />} />
+                            <Route
+                                path="addnew"
+                                element={
+                                    <AddNew
+                                        inputs={productInpDetails}
+                                        titlee="Add New Profile"
+                                        type="PROFILE"
+                                    />
+                                }
+                            />
+                        </Route>
+
+                          {/* nested routes */}
                         <Route path="products">
                             <Route index element={<Lists type="product" />} />
-                            <Route path=":productId" element={<ProfileDetails />} />
+                            <Route path=":productId" element={<Detail />} />
                             <Route
                                 path="addnew"
                                 element={

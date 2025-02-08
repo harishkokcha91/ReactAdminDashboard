@@ -5,7 +5,9 @@ import CloseIcon from '@mui/icons-material/Close';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import DashboardIcon from '@mui/icons-material/Dashboard';
+import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import FullscreenExitIcon from '@mui/icons-material/FullscreenExit';
+import GroupIcon from '@mui/icons-material/Group';
 import LanguageIcon from '@mui/icons-material/Language';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import LogoutIcon from '@mui/icons-material/Logout';
@@ -14,7 +16,6 @@ import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import PersonIcon from '@mui/icons-material/Person';
 import SearchIcon from '@mui/icons-material/Search';
 import SettingsRoundedIcon from '@mui/icons-material/SettingsRounded';
-import TableChartIcon from '@mui/icons-material/TableChart';
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ColorContext } from '../../ColorContext/darkContext';
@@ -111,21 +112,22 @@ function Navbar() {
                                         </li>
                                     </Link>
 
-                                    <Link to="/products" style={{ textDecoration: 'none' }}>
+                                    <Link to="/profiles" style={{ textDecoration: 'none' }}>
                                         <li>
-                                            <TableChartIcon className="icon" /> Products
-                                        </li>
-                                    </Link>
-                                    <Link to="/achievements" style={{ textDecoration: 'none' }}>
-                                        <li>
-                                            <CreditCardIcon className="icon" /> Achievements
+                                            <GroupIcon className="icon" /> Profiles
                                         </li>
                                     </Link>
                                     <Link to="/events" style={{ textDecoration: 'none' }}>
                                         <li>
-                                            <CreditCardIcon className="icon" /> Events
+                                            <Event className="icon" /> Events
                                         </li>
                                     </Link>
+                                    <Link to="/achievements" style={{ textDecoration: 'none' }}>
+                                        <li>
+                                            <EmojiEventsIcon className="icon" /> Achievements
+                                        </li>
+                                    </Link>
+                                   
                                     <Link to="/orders" style={{ textDecoration: 'none' }}>
                                         <li>
                                             <CreditCardIcon className="icon" /> Orders

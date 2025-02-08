@@ -3,10 +3,12 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
 import DashboardIcon from '@mui/icons-material/Dashboard';
+import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
+import EventIcon from '@mui/icons-material/Event';
+import GroupIcon from '@mui/icons-material/Group';
 import LogoutIcon from '@mui/icons-material/Logout';
 import PersonIcon from '@mui/icons-material/Person';
 import SettingsRoundedIcon from '@mui/icons-material/SettingsRounded';
-import TableChartIcon from '@mui/icons-material/TableChart';
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { ColorContext } from '../../ColorContext/darkContext';
@@ -40,26 +42,27 @@ function Sidebar() {
                         </li>
                     </Link>
 
-                    <Link to="/products" style={{ textDecoration: 'none' }}>
+                    <Link to="/profiles" style={{ textDecoration: 'none' }}>
                         <li>
-                            <TableChartIcon className="icon" /> Products
+                            <GroupIcon className="icon" /> Profiles
                         </li>
                     </Link>
                     <Link to="/events" style={{ textDecoration: 'none' }}>
                         <li>
-                            <CreditCardIcon className="icon" /> Events
+                            <EventIcon className="icon" /> Events
                         </li>
                     </Link>
+                    <Link to="/achievements" style={{ textDecoration: 'none' }}>
+                        <li>
+                            <EmojiEventsIcon className="icon" /> Achievements
+                        </li>
+                     </Link>
                     <Link to="/orders" style={{ textDecoration: 'none' }}>
                         <li>
                             <CreditCardIcon className="icon" /> Orders
                         </li>
                     </Link>
-                    <Link to="/achievements" style={{ textDecoration: 'none' }}>
-                        <li>
-                            <CreditCardIcon className="icon" /> Achievements
-                        </li>
-                     </Link>
+                   
                     <li>
                         <CreditCardIcon className="icon" /> Balance
                     </li>
