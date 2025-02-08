@@ -48,30 +48,38 @@ function AddNewAchievement() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);
-
+    
         try {
-            let imageUrl = achievementData.image;
-            
-            // If a new file is uploaded, send it to the server
+            let imageUrl = achievementData.image; // Use existing image URL if available
+    
             if (file) {
+                // Upload image first if a file is selected
                 const formData = new FormData();
-                formData.append('file', file);
-
-                const imageUploadRes = await axios.post('https://api.example.com/upload', formData, {
-                    headers: { 'Content-Type': 'multipart/form-data' },
-                });
-
-                imageUrl = imageUploadRes.data.imageUrl; // Assuming API returns the image URL
+                formData.append("image", file);
+    
+                console.log("Uploading file:", file);
+    
+                try {
+                    const response = await axios.post(`http://localhost:8084/image/upload`, formData);
+                    console.log("Image Uploaded:", response.data);
+                    imageUrl = response.data.image_url; // Use the uploaded image URL
+                } catch (uploadError) {
+                    console.error("Image Upload Error:", uploadError.response?.data || uploadError.message);
+                    alert("Image upload failed! Achievement not submitted.");
+                    setLoading(false);
+                    return; // Stop execution if image upload fails
+                }
             }
-
+    
+            // Proceed with submitting achievement (with or without new image)
             const payload = {
                 ...achievementData,
-                image: imageUrl,
+                image: imageUrl, // Either the uploaded image URL or existing one
             };
-
-            const response = await axios.post('http://localhost:8084/brilliantstudent/achievements/', payload);
-            console.log('Saved Successfully:', response.data);
-
+    
+            const achievementResponse = await axios.post('http://localhost:8084/brilliantstudent/achievements/', payload);
+            console.log('Achievement Saved Successfully:', achievementResponse.data);
+    
             alert('Achievement added successfully!');
             setAchievementData({
                 name: '',
@@ -90,7 +98,7 @@ function AddNewAchievement() {
             setLoading(false);
         }
     };
-
+    
     return (
         <div className="add_new">
             <div className="home_sidebar">
