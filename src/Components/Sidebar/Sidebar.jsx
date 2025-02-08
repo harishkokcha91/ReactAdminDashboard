@@ -45,6 +45,11 @@ function Sidebar() {
                             <TableChartIcon className="icon" /> Products
                         </li>
                     </Link>
+                    <Link to="/events" style={{ textDecoration: 'none' }}>
+                        <li>
+                            <CreditCardIcon className="icon" /> Events
+                        </li>
+                    </Link>
                     <Link to="/orders" style={{ textDecoration: 'none' }}>
                         <li>
                             <CreditCardIcon className="icon" /> Orders

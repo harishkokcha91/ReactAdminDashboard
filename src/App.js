@@ -4,12 +4,15 @@ import { ColorContext } from './ColorContext/darkContext';
 import Achievements from "./Components/Achievements/Achievements";
 import Home from './Components/Home/Home';
 import Orders from './Components/Orders/Orders';
+import Events from './Components/events/Events';
 import AddNew from './Pages/AddNew/AddNew';
 import AddNewAchievement from './Pages/AddNew/AddNewAchievement';
+import AddNewEvent from './Pages/AddNew/AddNewEvent';
 import BlogDetail from './Pages/BlogDetail/BlogDetail';
 import Blogs from './Pages/Blogs/Blogs';
 import AchievementDetails from "./Pages/Detail/AchievementDetails";
 import Detail from './Pages/Detail/Detail';
+import EventDetails from './Pages/Detail/EventDetails';
 import ProfileDetails from './Pages/Detail/ProfileDetails';
 import Login from './Pages/Login/Login';
 import Register from './Pages/Register/Register';
@@ -184,6 +187,20 @@ function App() {
                                     <AddNewAchievement
                                         titlee="Add New Achievement"
                                         type="ACHIEVEMENT"
+                                    />
+                                }
+                            />
+                        </Route>
+
+                        <Route path="events">
+                            <Route index element={<Events />} />
+                            <Route path=":eventId" element={<EventDetails />} />
+                            <Route
+                                path="addnew"
+                                element={
+                                    <AddNewEvent 
+                                        titlee="Add New Event" 
+                                        type="EVENT" 
                                     />
                                 }
                             />
