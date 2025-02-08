@@ -2,10 +2,10 @@
 /* eslint-disable no-nested-ternary */
 import React from 'react';
 import { Link } from 'react-router-dom';
-import DataTable from '../../Components/DataTable/DataTable';
 import Navbar from '../../Components/Navbar/Navbar';
 import Sidebar from '../../Components/Sidebar/Sidebar';
 import TableList from '../../Components/TableList/TableList';
+import UserTable from '../../Components/UserTable/UserTable';
 import './userlists.scss';
 
 function Lists({ type }) {
@@ -35,7 +35,7 @@ function Lists({ type }) {
                         </Link>
                     </div>
 
-                    {type === 'user' ? <DataTable /> : <TableList />}
+                    {type === 'user' ? <UserTable /> : <TableList />}
                 </div>
             </div>
         </div>
