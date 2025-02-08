@@ -104,22 +104,54 @@ const ProfileForm = () => {
     e.preventDefault();
     console.log("User Details:", userDetails);
     console.log("Profile Data:", profile);
-
+  
     try {
       // **User Registration API Call**
-      const userResponse = await axios.post("http://localhost:8084/auth/registerOne", userDetails, {
-        headers: { "Content-Type": "application/json" }
-      });
-
+      const userResponse = await axios.post(
+        "http://localhost:8084/auth/registerOne",
+        userDetails,
+        {
+          headers: { "Content-Type": "application/json" }
+        }
+      );
+  
       console.log("User Registered:", userResponse.data);
-
+  
       // Extract User ID from Response
       const user_id = userResponse.data.user.ID;
       setProfile((prevProfile) => ({ ...prevProfile, user_id }));
-      console.log("User Id:", user_id);
-      // **Profile Creation API Call**
-      const profileResponse = await axios.post("http://localhost:8084/profile/matrimonialProfiles/", 
-        { ...profile, user_id }, 
+  
+      let imageUrl = ""; // Store uploaded image URL
+  
+      // **Upload Image First if Selected**
+      if (selectedFile) {
+        const formData = new FormData();
+        formData.append("image", selectedFile);
+  
+        try {
+          const uploadResponse = await axios.post(
+            "http://localhost:8084/image/upload",
+            formData,
+            {
+              headers: { "Content-Type": "multipart/form-data" }
+            }
+          );
+          console.log("Image Uploaded:", uploadResponse.data);
+          imageUrl = uploadResponse.data.image_url; // Set uploaded image URL
+        } catch (uploadError) {
+          console.error(
+            "Image Upload Error:",
+            uploadError.response?.data || uploadError.message
+          );
+          alert("Image upload failed! Profile not submitted.");
+          return; // Stop execution if image upload fails
+        }
+      }
+  
+      // **Profile Creation API Call (With Image URL if Available)**
+      const profileResponse = await axios.post(
+        "http://localhost:8084/profile/matrimonialProfiles/",
+        { ...profile, user_id, image: imageUrl }, // Attach image URL if available
         {
           headers: {
             "Content-Type": "application/json",
@@ -127,35 +159,18 @@ const ProfileForm = () => {
           }
         }
       );
-
+  
       console.log("Profile Created:", profileResponse.data);
-      // After creating profile, upload image
-      if (selectedFile) {
-        await uploadImage(profileResponse.data.id, selectedFile);
-      }
+  
+      // **Reset form after successful submission**
+      resetForm();
+      alert("Registration and Profile Creation Successful!");
     } catch (error) {
       console.error("Error:", error.response?.data || error.message);
-      alert("Something went wrong. Please try again.",error.response?.data || error.message);
+      alert("Something went wrong. Please try again.");
     }
   };
-  const uploadImage = async (userId, file) => {
-    const formData = new FormData();
-    formData.append("image", file);
-    console.log("userId image ",userId)
-    console.log(" image ",file)
-    try {
-      const response = await axios.post(`http://localhost:8084/profile/matrimonialProfiles/upload/${userId}`, formData, {
-        headers: { "Content-Type": "multipart/form-data" },
-      });
   
-      console.log("Image Uploaded:", response.data);
-       // Reset form after successful submission
-    resetForm();
-    alert("Registration and Profile Creation Successful!");
-    } catch (error) {
-      console.error("Image Upload Error:", error.response?.data || error.message);
-    }
-  };
   return (
     <div className={styles.container}>
       <h2>Profile Form</h2>

@@ -80,7 +80,7 @@ function AchievementsTable() {
                 <TableRow key={row.id}>
                   <TableCell className="table_cell">
                     <img
-                      // src={row.image ? `http://localhost:8084/uploads/${row.image}` : DEFAULT_IMAGE}
+                      src={row.image ? `${row.image}` : DEFAULT_IMAGE}
                       alt="Achievement"
                       style={{ width: 50, height: 50, borderRadius: "50%" }}
                     />
