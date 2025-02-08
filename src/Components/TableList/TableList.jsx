@@ -25,11 +25,11 @@ function TableList({ userId }) {
         const fetchData = async () => {
             setLoading(true);
             setError(null);
-
+            console.log(userId)
             const API_URL = userId
                 ? `http://localhost:8084/profile/matrimonialProfiles/byuserId/${userId}?page=${page}&limit=10`
                 : `http://localhost:8084/profile/matrimonialProfiles/?page=${page}&limit=10`;
-
+                console.log(API_URL)
             try {
                 const response = await axios.get(API_URL, {
                     headers: {

@@ -70,7 +70,7 @@ function UserTable() {
                 <Table sx={{ minWidth: 650 }} aria-label="user table">
                     <TableHead>
                         <TableRow>
-                            <TableCell className="table_cell">Image</TableCell>
+                            <TableCell className="table_cell">Id</TableCell>
                             <TableCell className="table_cell">Username</TableCell>
                             <TableCell className="table_cell">Email</TableCell>
                             <TableCell className="table_cell">Age</TableCell>
@@ -88,11 +88,12 @@ function UserTable() {
                             data.map((user, index) => (
                                 <TableRow key={user.ID}>
                                     <TableCell className="table_cell">
-                                        <img
+                                        {/* <img
                                             src={DEFAULT_IMAGE} 
                                             alt="User"
                                             style={{ width: 50, height: 50, borderRadius: "50%" }}
-                                        />
+                                        /> */}
+                                        {user.ID || 'Unknown'}
                                     </TableCell>
                                     <TableCell className="table_cell">{user.name || 'Unknown'}</TableCell>
                                     <TableCell className="table_cell">{user.email}</TableCell>

@@ -54,27 +54,31 @@ function Detail() {
                 <Navbar />
 
                 <div className="user_info">
-                    <div className="user_detail">
-                        <img src={user.image || userPic} alt="user" className="user_image" />
+                <div className="user_detail">
+                    <img 
+                        src={user.image || userPic} 
+                        alt="user" 
+                        className="user_image" 
+                    />
 
-                        <div className="user_detailss">
-                            <p className="name">Name: {user.name}</p>
-                            <p>Email: {user.email}</p>
-                            <p>Age: {user.age}</p>
-                            <p>Status: {user.status}</p>
-                            {/* <p>Created At: {new Date(user.created_at).toLocaleString()}</p>
-                            <p>Updated At: {new Date(user.updated_at).toLocaleString()}</p> */}
-                        </div>
-                    </div>
-
-                    <div className="user_chart">
-                        <Chart height={390} title="User spending" />
+                    <div className="user_detailss">
+                        <p className="name">Name: {user.name || "N/A"}</p>
+                        <p>Email: {user.email || "N/A"}</p>
+                        <p>Age: {user.age || "N/A"}</p>
+                        <p>Phone: {user.phoneNumbers || "N/A"}</p>
+                        <p>Status: {user.status || "N/A"}</p>
                     </div>
                 </div>
 
+                <div className="user_chart">
+                    <Chart height={390} title="User spending" />
+                </div>
+            </div>
+
+
                 <div className="table">
                     <div className="title">Child Profile</div>
-                        <TableList userId={user.user_id} />
+                        <TableList userId={user.ID} />
                 </div>
             </div>
         </div>
