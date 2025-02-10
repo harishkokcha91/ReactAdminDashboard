@@ -7,6 +7,7 @@ import CreditCardIcon from '@mui/icons-material/CreditCard';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
+import EventIcon from '@mui/icons-material/Event';
 import FullscreenExitIcon from '@mui/icons-material/FullscreenExit';
 import GroupIcon from '@mui/icons-material/Group';
 import LanguageIcon from '@mui/icons-material/Language';
@@ -120,7 +121,7 @@ function Navbar() {
                                     </Link>
                                     <Link to="/events" style={{ textDecoration: 'none' }}>
                                         <li>
-                                            <Event className="icon" /> Events
+                                            <EventIcon className="icon" /> Events
                                         </li>
                                     </Link>
                                     <Link to="/achievements" style={{ textDecoration: 'none' }}>
