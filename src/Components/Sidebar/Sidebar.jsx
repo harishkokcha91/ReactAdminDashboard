@@ -1,6 +1,7 @@
 
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import BarChartIcon from '@mui/icons-material/BarChart';
+import BusinessIcon from '@mui/icons-material/Business';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
@@ -57,6 +58,11 @@ function Sidebar() {
                             <EmojiEventsIcon className="icon" /> Achievements
                         </li>
                      </Link>
+                     <Link to="/business" style={{ textDecoration: 'none' }}>
+                        <li>
+                            <BusinessIcon className="icon" /> Business
+                        </li>
+                    </Link>
                     <Link to="/orders" style={{ textDecoration: 'none' }}>
                         <li>
                             <CreditCardIcon className="icon" /> Orders

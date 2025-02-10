@@ -1,0 +1,157 @@
+.details {
+  display: grid;
+  grid-template-columns: 17% 83%;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+
+  .home_sidebar {
+    background-color: #f8f9fa;
+    padding: 10px;
+  }
+
+  .detail_page_main {
+    .business_info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      gap: 20px;
+
+      .business_detail {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+        border-radius: 10px;
+        padding: 25px;
+        background: #fff;
+        text-align: center;
+        max-width: 600px;
+        width: 100%;
+
+        .business_image {
+          width: 130px;
+          height: 130px;
+          border-radius: 10px;
+          object-fit: cover;
+          border: 3px solid #ddd;
+          margin-bottom: 15px;
+        }
+
+        .business_details {
+          width: 100%;
+          text-align: left;
+
+          p {
+            margin-bottom: 8px;
+            font-size: 16px;
+            color: #555;
+
+            strong {
+              color: #333;
+            }
+          }
+
+          .name {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 10px;
+          }
+
+          .status {
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 5px;
+            display: inline-block;
+
+            &.Approved {
+              background-color: #4caf50;
+              color: white;
+            }
+
+            &.Rejected {
+              background-color: #f44336;
+              color: white;
+            }
+
+            &.Pending {
+              background-color: #ff9800;
+              color: white;
+            }
+          }
+        }
+
+        .approval_buttons {
+          margin-top: 15px;
+          display: flex;
+          justify-content: center;
+          gap: 15px;
+
+          button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+
+            &.approve_btn {
+              background-color: #28a745;
+              color: white;
+
+              &:hover {
+                background-color: #218838;
+              }
+
+              &:disabled {
+                background-color: #c3e6cb;
+                cursor: not-allowed;
+              }
+            }
+
+            &.reject_btn {
+              background-color: #dc3545;
+              color: white;
+
+              &:hover {
+                background-color: #c82333;
+              }
+
+              &:disabled {
+                background-color: #f8d7da;
+                cursor: not-allowed;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Responsive Design */
+@media screen and (max-width: 992px) {
+  .details {
+    grid-template-columns: 100%;
+
+    .home_sidebar {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .details {
+    padding: 10px;
+
+    .business_info {
+      padding: 15px;
+
+      .business_detail {
+        width: 90%;
+      }
+    }
+  }
+}

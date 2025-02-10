@@ -15,7 +15,7 @@ function ProfileDetails() {
     useEffect(() => {
         const fetchProfile = async () => {
             try {
-                const response = await fetch(`http://localhost:8084/profile/matrimonialProfiles/${productId}`, {
+                const response = await fetch(`http://localhost:8084/profile/matrimonialProfiles/${profileId}`, {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json",

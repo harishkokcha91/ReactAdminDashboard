@@ -4,13 +4,16 @@ import { ColorContext } from './ColorContext/darkContext';
 import Achievements from "./Components/Achievements/Achievements";
 import Home from './Components/Home/Home';
 import Orders from './Components/Orders/Orders';
+import Businesses from "./Components/business/Businesses";
 import Events from './Components/events/Events';
 import AddNew from './Pages/AddNew/AddNew';
 import AddNewAchievement from './Pages/AddNew/AddNewAchievement';
+import AddNewBusiness from './Pages/AddNew/AddNewBusiness';
 import AddNewEvent from './Pages/AddNew/AddNewEvent';
 import BlogDetail from './Pages/BlogDetail/BlogDetail';
 import Blogs from './Pages/Blogs/Blogs';
 import AchievementDetails from "./Pages/Detail/AchievementDetails";
+import BusinessDetails from "./Pages/Detail/BusinessDetails";
 import Detail from './Pages/Detail/Detail';
 import EventDetails from './Pages/Detail/EventDetails';
 import ProfileDetails from './Pages/Detail/ProfileDetails';
@@ -187,6 +190,20 @@ function App() {
                                     <AddNewAchievement
                                         titlee="Add New Achievement"
                                         type="ACHIEVEMENT"
+                                    />
+                                }
+                            />
+                        </Route>
+
+                        <Route path="business">
+                            <Route index element={<Businesses />} />
+                            <Route path=":businessId" element={<BusinessDetails />} />
+                            <Route
+                                path="addnew"
+                                element={
+                                    <AddNewBusiness 
+                                        titlee="Add New Business" 
+                                        type="BUSINESS" 
                                     />
                                 }
                             />
