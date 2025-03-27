@@ -2,10 +2,10 @@
 /* eslint-disable no-nested-ternary */
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Navbar from '../../Components/Navbar/Navbar';
-import Sidebar from '../../Components/Sidebar/Sidebar';
-import TableList from '../../Components/TableList/TableList';
-import UserTable from '../../Components/UserTable/UserTable';
+import Navbar from '../Navbar/Navbar';
+import ProfileList from '../ProfileList/ProfileList';
+import Sidebar from '../Sidebar/Sidebar';
+import UserTable from '../UserTable/UserTable';
 import './userlists.scss';
 
 function Lists({ type }) {
@@ -19,7 +19,8 @@ function Lists({ type }) {
             <div className="list_page_main">
                 <Navbar />
 
-                {/* mui data table */}
+                {/* mui data table */
+                console.log("type",type)}
                 <div className="data_table">
                     <div className="btnn">
                         <Link
@@ -28,6 +29,8 @@ function Lists({ type }) {
                                     ? 'products'
                                     : type === 'user'
                                     ? 'users'
+                                     : type === 'profile'
+                                    ? 'profiles'
                                     : 'blogs'
                             }/addnew`}
                             style={{ textDecoration: 'none' }}>
@@ -35,7 +38,7 @@ function Lists({ type }) {
                         </Link>
                     </div>
 
-                    {type === 'user' ? <UserTable /> : <TableList />}
+                    {type === 'user' ? <UserTable /> : <ProfileList />}
                 </div>
             </div>
         </div>
