@@ -4,6 +4,7 @@ import { ColorContext } from './ColorContext/darkContext';
 import Achievements from "./Components/Achievements/Achievements";
 import Home from './Components/Home/Home';
 import Orders from './Components/Orders/Orders';
+import Lists from './Components/UserLists/UserLists';
 import Businesses from "./Components/business/Businesses";
 import Events from './Components/events/Events';
 import AddMatrimonialProfile from './Pages/AddNew/AddMatrimonialProfile';
@@ -20,7 +21,6 @@ import EventDetails from './Pages/Detail/EventDetails';
 import ProfileDetails from './Pages/Detail/ProfileDetails';
 import Login from './Pages/Login/Login';
 import Register from './Pages/Register/Register';
-import Lists from './Pages/UserLists/UserLists';
 import ProfileForm from './Pages/profile/ProfileForm';
 import './app.scss';
 
@@ -182,6 +182,7 @@ function App() {
                             />
                         </Route>
                         <Route path="orders" element={<Orders />} />
+                        
                         <Route path="achievements">
                             <Route index element={<Achievements />} />
                             <Route path=":achievementId" element={<AchievementDetails />} />
@@ -233,6 +234,7 @@ function App() {
                                 element={
                                     <AddMatrimonialProfile
                                         inputs={productInpDetails}
+                                    // <AddNewProfile
                                         titlee="Add New Profile"
                                         type="PROFILE"
                                     />

@@ -1,0 +1,65 @@
+.add_new_business {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    .form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+        .MuiTextField-root,
+        .MuiFormControl-root {
+            background: #f9f9f9;
+            border-radius: 5px;
+        }
+
+        .MuiInputLabel-root {
+            font-size: 14px;
+        }
+
+        input[type="file"] {
+            margin-top: 5px;
+        }
+
+        label {
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .MuiCheckbox-root {
+            color: #1976d2;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            background: #1976d2;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+
+            &:hover {
+                background: #135ba1;
+            }
+
+            &:disabled {
+                background: #ccc;
+                cursor: not-allowed;
+            }
+        }
+    }
+}

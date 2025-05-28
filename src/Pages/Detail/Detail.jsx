@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import Chart from "../../Components/Chart/Chart";
 import Navbar from "../../Components/Navbar/Navbar";
 import Sidebar from "../../Components/Sidebar/Sidebar";
-import TableList from "../../Components/TableList/TableList";
 import userPic from "../../Images/man2.jpg";
 import "./Detail.scss";
 
@@ -78,7 +77,7 @@ function Detail() {
 
                 <div className="table">
                     <div className="title">Child Profile</div>
-                        <TableList userId={user.ID} />
+                        <ProfileList userId={user.ID} />
                 </div>
             </div>
         </div>
