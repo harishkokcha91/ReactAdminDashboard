@@ -6,6 +6,7 @@ import Home from './Components/Home/Home';
 import Orders from './Components/Orders/Orders';
 import Businesses from "./Components/business/Businesses";
 import Events from './Components/events/Events';
+import AddMatrimonialProfile from './Pages/AddNew/AddMatrimonialProfile';
 import AddNew from './Pages/AddNew/AddNew';
 import AddNewAchievement from './Pages/AddNew/AddNewAchievement';
 import AddNewBusiness from './Pages/AddNew/AddNewBusiness';
@@ -230,7 +231,7 @@ function App() {
                             <Route
                                 path="addnew"
                                 element={
-                                    <AddNew
+                                    <AddMatrimonialProfile
                                         inputs={productInpDetails}
                                         titlee="Add New Profile"
                                         type="PROFILE"

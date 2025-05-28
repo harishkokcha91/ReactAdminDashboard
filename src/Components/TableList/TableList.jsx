@@ -128,7 +128,7 @@ function TableList({ userId }) {
                                     <TableCell className="table_cell">
                                         <div className="actionn">
                                             
-                                            <Link to={`/products/${row.id}`}>
+                                            <Link to={`/profiles/${row.id}`}>
                                                 <button type="button" className="viewF_btn">
                                                     View {row.id}
                                                 </button>

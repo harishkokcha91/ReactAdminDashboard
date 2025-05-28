@@ -6,12 +6,13 @@ import userPic from "../../Images/man2.jpg"; // Default profile image
 import "./ProfileDetails.scss";
 
 function ProfileDetails() {
-    const { productId } = useParams(); // Get productId from URL params
+    const { profileId } = useParams(); // Get profileId from URL params
     const [profile, setProfile] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [updating, setUpdating] = useState(false);
-
+    console.log(profileId)
+    console.log("Hello")
     useEffect(() => {
         const fetchProfile = async () => {
             try {
@@ -38,7 +39,7 @@ function ProfileDetails() {
         };
 
         fetchProfile();
-    }, [productId]);
+    }, [profileId]);
 
    
     const handleApproval = async (newStatus) => {
@@ -47,7 +48,7 @@ function ProfileDetails() {
         try {
             const updatedProfile = { ...profile, status: newStatus };
 
-            const response = await fetch(`http://localhost:8084/profile/matrimonialProfiles/${productId}`, {
+            const response = await fetch(`http://localhost:8084/profile/matrimonialProfiles/${profileId}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
