@@ -13,7 +13,7 @@ function EventDetails() {
     useEffect(() => {
         const fetchEvent = async () => {
             try {
-                const response = await fetch(`http://localhost:8084/namdevevents/events/${eventId}`, {
+                const response = await fetch(`http://localhost:8080/namdevevents/events/${eventId}`, {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json",

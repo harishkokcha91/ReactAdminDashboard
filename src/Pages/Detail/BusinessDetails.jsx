@@ -14,7 +14,7 @@ function BusinessDetails() {
     useEffect(() => {
         const fetchBusiness = async () => {
             try {
-                const response = await fetch(`http://localhost:8084/namdevbusinesses/businesses/${businessId}`, {
+                const response = await fetch(`http://localhost:8080/namdevbusinesses/businesses/${businessId}`, {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json",
@@ -45,7 +45,7 @@ function BusinessDetails() {
         try {
             const updatedBusiness = { ...business, status: newStatus };
 
-            const response = await fetch(`http://localhost:8084/namdevbusinesses/businesses/${businessId}`, {
+            const response = await fetch(`http://localhost:8080/namdevbusinesses/businesses/${businessId}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",

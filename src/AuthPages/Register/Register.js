@@ -65,7 +65,7 @@ function Register() {
         if (Object.keys(formErrors).length === 0 && isSubmit) {
             console.log(user);
             axios
-                .post('http://localhost:8084/auth/register', user)
+                .post('http://localhost:8080/auth/register', user)
                 .then((res) => {
                     alert(res.data.message);
                     navigate('/login', { replace: true });

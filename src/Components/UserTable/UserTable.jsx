@@ -31,7 +31,7 @@ function UserTable() {
         setError(null);
 
         try {
-            const response = await axios.get(`http://localhost:8084/user/users/?page=${page}&limit=${limit}`, {
+            const response = await axios.get(`http://localhost:8080/user/users/?page=${page}&limit=${limit}`, {
                 headers: {
                     'Content-Type': 'application/json',
                     Authorization: `Bearer ${token}`,

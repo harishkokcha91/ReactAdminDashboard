@@ -14,7 +14,7 @@ function AchievementDetails() {
     useEffect(() => {
         const fetchAchievement = async () => {
             try {
-                const response = await fetch(`http://localhost:8084/brilliantstudent/achievements/${achievementId}`, {
+                const response = await fetch(`http://localhost:8080/brilliantstudent/achievements/${achievementId}`, {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json",
@@ -45,7 +45,7 @@ function AchievementDetails() {
         try {
             const updatedAchievement = { ...achievement, status: newStatus };
 
-            const response = await fetch(`http://localhost:8084/brilliantstudent/achievements/${achievementId}`, {
+            const response = await fetch(`http://localhost:8080/brilliantstudent/achievements/${achievementId}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
@@ -80,7 +80,7 @@ function AchievementDetails() {
 
                 <div className="achievement_info">
                     <div className="achievement_detail">
-                    <img src={"http://localhost:8084/profile/" + achievement.image  || userPic} alt="Profile" className="achievement_image" />
+                    <img src={"http://localhost:8080/profile/" + achievement.image  || userPic} alt="Profile" className="achievement_image" />
 
                         <h2>{achievement.achievement || "Untitled Achievement"}</h2>
                         <p><strong>Description:</strong> {achievement.description || "No description provided"}</p>

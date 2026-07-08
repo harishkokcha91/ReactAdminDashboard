@@ -15,7 +15,7 @@ function Detail() {
     useEffect(() => {
         const fetchUser = async () => {
             try {
-                const response = await fetch(`http://localhost:8084/user/users/${userId}`, {
+                const response = await fetch(`http://localhost:8080/user/users/${userId}`, {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json",

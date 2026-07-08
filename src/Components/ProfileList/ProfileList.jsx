@@ -27,8 +27,8 @@ function ProfileList({ userId }) {
             setError(null);
             console.log(userId)
             const API_URL = userId
-                ? `http://localhost:8084/profile/matrimonialProfiles/byuserId/${userId}?page=${page}&limit=10`
-                : `http://localhost:8084/profile/matrimonialProfiles/?page=${page}&limit=10`;
+                ? `http://localhost:8080/profile/matrimonialProfiles/byuserId/${userId}?page=${page}&limit=10`
+                : `http://localhost:8080/profile/matrimonialProfiles/?page=${page}&limit=10`;
                 console.log(API_URL)
             try {
                 const response = await axios.get(API_URL, {
@@ -109,7 +109,7 @@ function ProfileList({ userId }) {
                                 <TableRow key={row.id}>
                                     <TableCell className="table_cell">
                                         <img 
-                                            src={"http://localhost:8084/profile/"+row.image || DEFAULT_IMAGE} 
+                                            src={"http://localhost:8080/profile/"+row.image || DEFAULT_IMAGE} 
                                             alt="Profile" 
                                             style={{ width: 50, height: 50, borderRadius: "50%" }} 
                                         />

@@ -16,7 +16,7 @@ function ProfileDetails() {
     useEffect(() => {
         const fetchProfile = async () => {
             try {
-                const response = await fetch(`http://localhost:8084/profile/matrimonialProfiles/${profileId}`, {
+                const response = await fetch(`http://localhost:8080/profile/matrimonialProfiles/${profileId}`, {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json",
@@ -48,7 +48,7 @@ function ProfileDetails() {
         try {
             const updatedProfile = { ...profile, status: newStatus };
 
-            const response = await fetch(`http://localhost:8084/profile/matrimonialProfiles/${profileId}`, {
+            const response = await fetch(`http://localhost:8080/profile/matrimonialProfiles/${profileId}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
@@ -83,7 +83,7 @@ function ProfileDetails() {
 
                 <div className="profile_info">
                     <div className="profile_detail">
-                        <img src={"http://localhost:8084/profile/" + profile.image  || userPic} alt="Profile" className="profile_image" />
+                        <img src={"http://localhost:8080/profile/" + profile.image  || userPic} alt="Profile" className="profile_image" />
 
                         <div className="profile_details">
                             <p className="name"><strong>Name:</strong> {profile.name || "N/A"}</p>

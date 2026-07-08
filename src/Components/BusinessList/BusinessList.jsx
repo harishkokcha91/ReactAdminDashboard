@@ -26,7 +26,7 @@ function BusinessList() {
             setLoading(true);
             setError(null);
 
-            const API_URL = `http://localhost:8084/namdevbusinesses/businesses/?page=${page}&limit=10`;
+            const API_URL = `http://localhost:8080/namdevbusinesses/businesses/?page=${page}&limit=10`;
 
             try {
                 const response = await axios.get(API_URL, {

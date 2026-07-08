@@ -108,7 +108,7 @@ const ProfileForm = () => {
     try {
       // **User Registration API Call**
       const userResponse = await axios.post(
-        "http://localhost:8084/auth/registerOne",
+        "http://localhost:8080/auth/registerOne",
         userDetails,
         {
           headers: { "Content-Type": "application/json" }
@@ -130,7 +130,7 @@ const ProfileForm = () => {
   
         try {
           const uploadResponse = await axios.post(
-            "http://localhost:8084/image/upload",
+            "http://localhost:8080/image/upload",
             formData,
             {
               headers: { "Content-Type": "multipart/form-data" }
@@ -150,7 +150,7 @@ const ProfileForm = () => {
   
       // **Profile Creation API Call (With Image URL if Available)**
       const profileResponse = await axios.post(
-        "http://localhost:8084/profile/matrimonialProfiles/",
+        "http://localhost:8080/profile/matrimonialProfiles/",
         { ...profile, user_id, image: imageUrl }, // Attach image URL if available
         {
           headers: {

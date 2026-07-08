@@ -11,7 +11,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./achievementsTable.scss";
 
-const API_URL = "http://localhost:8084/brilliantstudent/achievements/"; // Adjust API URL
+const API_URL = "http://localhost:8080/brilliantstudent/achievements/"; // Adjust API URL
 const DEFAULT_IMAGE = "https://via.placeholder.com/50"; // Placeholder for missing images
 
 function AchievementsTable() {

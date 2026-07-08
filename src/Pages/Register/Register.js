@@ -61,7 +61,7 @@ const Register = () => {
   useEffect(() => {
     if (Object.keys(formErrors).length === 0 && isSubmit) {
       console.log(user);
-      axios.post("http://localhost:8084/auth/register", user).then((res) => {
+      axios.post("http://localhost:8080/auth/register", user).then((res) => {
         alert(res.data.message);
         navigate("/login", { replace: true });
       }).catch((error) => {

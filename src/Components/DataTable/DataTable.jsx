@@ -23,7 +23,7 @@ function DataTable() {
     const fetchUsers = async (page, limit) => {
         const token = localStorage.getItem('authToken');
         try {
-            const response = await fetch(`http://localhost:8084/user/users/?page=${page}&limit=${limit}`, {
+            const response = await fetch(`http://localhost:8080/user/users/?page=${page}&limit=${limit}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',

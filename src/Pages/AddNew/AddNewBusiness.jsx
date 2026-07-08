@@ -40,7 +40,7 @@ const AddNewBusiness = () => {
         formData.append("image", file);
 
         try {
-            const response = await axios.post("http://localhost:8084/image/upload", formData);
+            const response = await axios.post("http://localhost:8080/image/upload", formData);
             return response.data.image_url;
         } catch (error) {
             console.error("Image Upload Error:", error);
@@ -60,7 +60,7 @@ const AddNewBusiness = () => {
 
             const finalBusinessData = { ...businessData, image: imageUrl };
 
-            await axios.post("http://localhost:8084/namdevbusinesses/businesses/", finalBusinessData);
+            await axios.post("http://localhost:8080/namdevbusinesses/businesses/", finalBusinessData);
             alert("Business added successfully!");
 
             setBusinessData({

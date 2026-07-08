@@ -44,7 +44,7 @@ const AddNewProfile = () => {
         setLoading(true);
 
         try {
-            await axios.post("http://localhost:8084/profile/matrimonialProfiles/profiles/", profileData);
+            await axios.post("http://localhost:8080/profile/matrimonialProfiles/profiles/", profileData);
             alert("Profile added successfully!");
 
             setProfileData({

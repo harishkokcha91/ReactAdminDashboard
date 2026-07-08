@@ -26,7 +26,7 @@ function EventList() {
             setLoading(true);
             setError(null);
 
-            const API_URL = `http://localhost:8084/namdevevents/events/?page=${page}&limit=10`;
+            const API_URL = `http://localhost:8080/namdevevents/events/?page=${page}&limit=10`;
 
             try {
                 const response = await axios.get(API_URL, {

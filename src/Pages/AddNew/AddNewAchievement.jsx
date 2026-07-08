@@ -60,7 +60,7 @@ function AddNewAchievement() {
                 console.log("Uploading file:", file);
     
                 try {
-                    const response = await axios.post(`http://localhost:8084/image/upload`, formData);
+                    const response = await axios.post(`http://localhost:8080/image/upload`, formData);
                     console.log("Image Uploaded:", response.data);
                     imageUrl = response.data.image_url; // Use the uploaded image URL
                 } catch (uploadError) {
@@ -77,7 +77,7 @@ function AddNewAchievement() {
                 image: imageUrl, // Either the uploaded image URL or existing one
             };
     
-            const achievementResponse = await axios.post('http://localhost:8084/brilliantstudent/achievements/', payload);
+            const achievementResponse = await axios.post('http://localhost:8080/brilliantstudent/achievements/', payload);
             console.log('Achievement Saved Successfully:', achievementResponse.data);
     
             alert('Achievement added successfully!');

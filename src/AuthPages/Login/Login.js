@@ -44,7 +44,7 @@ function Login({ setUserState }) {
     useEffect(() => {
         if (Object.keys(formErrors).length === 0 && isSubmit) {
             console.log(user);
-            axios.post('http://localhost:8084/auth/login', user).then(({ data: { token } }) => {
+            axios.post('http://localhost:8080/auth/login', user).then(({ data: { token } }) => {
                 if (token) {
                     localStorage.setItem('authToken', token);
                     console.log('token', token);

@@ -44,7 +44,7 @@ const AddNewEvent = () => {
         formData.append("image", file);
 
         try {
-            const response = await axios.post("http://localhost:8084/image/upload", formData);
+            const response = await axios.post("http://localhost:8080/image/upload", formData);
             return response.data.image_url;
         } catch (error) {
             console.error("Image Upload Error:", error);
@@ -69,7 +69,7 @@ const AddNewEvent = () => {
             const finalEventData = { ...eventData, image: imageUrl, event_date: formattedDate };
 
 
-            await axios.post("http://localhost:8084/namdevevents/events/", finalEventData);
+            await axios.post("http://localhost:8080/namdevevents/events/", finalEventData);
             alert("Event added successfully!");
 
             setEventData({
